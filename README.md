@@ -71,7 +71,7 @@ find :login_button, {:xpath => "//button[@id='signin']"}
 
 ### <a name="find_elements"></a> 2. Finding Multiple Element   
 Syntax   
-elementd(:<name_of_element>, :<locator_strategy> => "locator value")   
+element :<name_of_element>, {:<locator_strategy> => "locator value"}   
 or   
 all :<name_of_element>, {:<locator_strategy> => "locator value"}   
 or   
