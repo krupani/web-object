@@ -49,9 +49,9 @@ To use web-object, you need to extend your page class with web-object
 
 ### <a name="find_element"></a> 1. Finding Element   
 Syntax   
-element(:<name_of_element>, :<locator_strategy> => "locator value")   
+element :name_of_element, {:<locator_strategy> => "locator value"}   
 or   
-find :<name_of_element>, {:<locator_strategy> => "locator value"}   
+find :name_of_element, {:<locator_strategy> => "locator value"}   
 
 Returns an object of WebElement
 
@@ -71,11 +71,11 @@ find :login_button, {:xpath => "//button[@id='signin']"}
 
 ### <a name="find_elements"></a> 2. Finding Multiple Element   
 Syntax   
-element :<name_of_element>, {:<locator_strategy> => "locator value"}   
+element :name_of_element, {:<locator_strategy> => "locator value"}   
 or   
-all :<name_of_element>, {:<locator_strategy> => "locator value"}   
+all :name_of_element, {:<locator_strategy> => "locator value"}   
 or   
-element_list :<name_of_element>, {:<locator_strategy> => "locator value"}
+element_list :name_of_element, {:<locator_strategy> => "locator value"}
 
 Returns an array of WebElement objects
 
