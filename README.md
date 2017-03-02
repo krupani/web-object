@@ -21,7 +21,7 @@ commands on it like send_keys, click, displayed? .. and so on...
     
 
 ## <a name="install"></a> Installation :eyes:  
-There are multiple ways in which you can install and use testnow gem.
+There are multiple ways in which you can install and use web-object gem.
 You must have Ruby installed before you can install this gem.   
 
 ### <a name="gem" /> 1. Install using gem command
