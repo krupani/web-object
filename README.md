@@ -1,4 +1,4 @@
-#web-object  
+# web-object  
 
 Create page-object style test framework using original webdriver flavor.
 Now what does original webdriver flavor is, it simply means, no additional wrappers, no additional syntax.
@@ -52,9 +52,8 @@ Syntax
 element :name_of_element, {:locator_strategy => "locator value"}   
 or   
 find :name_of_element, {:locator_strategy => "locator value"}   
-
-Returns an object of WebElement
-
+    
+   
 Eg:   
 ```   
 element :login_email, {:id => "email"}   
@@ -68,6 +67,21 @@ find :login_password, {:css => "#pwd"}
 find :login_button, {:xpath => "//button[@id='signin']"}
 ```
    
+Returns an object of WebElement.   
+Raise an exception by default if element is not found.   
+Will return Boolean false if error=false parameter is explicitly passed.  
+
+Eg of error handling as mentioned above:   
+```   
+1) element :login_button, {:id => 'signIn'}
+2) element :profile_link, {:css => '.user_profile'}, error=false
+   
+# Example 1 will raise element not found exception if element not found on the page   
+# Example 2 will just return a Boolean false if element not found on the page   
+
+```
+
+   
 
 ### <a name="find_elements"></a> 2. Finding Multiple Element   
 Syntax   
@@ -77,12 +91,10 @@ all :name_of_element, {:locator_strategy => "locator value"}
 or   
 element_list :name_of_element, {:locator_strategy => "locator value"}
 
-Returns an array of WebElement objects
-
 Eg:   
 ```   
 elements :product_prices, {:id => "prices"}   
-elements :active_users, {:css => ".users>#active"}   
+elements :active_users, {:css => ".users>#active"}, error=true    
 ```      
 or   
 ```   
@@ -95,9 +107,20 @@ all :product_prices, {:id => "prices"}
 all :active_users, {:css => ".users>#active"}   
 ```   
   
-__Note: Currently finding multiple elements will raise an exception if no element is found. 
-In subsequent version, there will be an option to get back an empty array if no element is found.__  
+Returns an array of WebElement objects.   
+Return an empty array in element is not found by default.   
+Will raise an error if error=true parameter explicitly passed in case of element not found.   
   
+  
+Eg of error handling as mentioned above:   
+```   
+1) elements :names, {:id => 'names'}, error=true
+2) elements :header_tabs, {:css => '.menu-item'}
+   
+# Example 1 will raise element not found exception if element not found on the page   
+# Example 2 will just return an empty array if element not found on the page   
+
+```
     
       
 ## <a name="usage"></a> Usage :eyes:   
