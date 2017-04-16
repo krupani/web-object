@@ -8,4 +8,5 @@ Gem::Specification.new do |gem|
   gem.homepage      = 'https://github.com/krupani/web_object'
   gem.files         = Dir.glob("{lib}/**/*") + %w(README.md LICENCE)
   gem.add_runtime_dependency('selenium-webdriver','~> 3')
+  gem.license       = 'MIT'
 end
