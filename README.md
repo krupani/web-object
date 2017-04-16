@@ -13,7 +13,8 @@ commands on it like send_keys, click, displayed? .. and so on...
     - [Install using bundler](#bundler)    
 - [Syntax](#syntax)   
     - [Finding Element](#find_element)    
-    - [Finding Multiple Elements](#find_elements)    
+    - [Finding Multiple Elements](#find_elements)   
+    - [Syntax Summary](#summary) 
 - [Usage](#usage)   
 - [Aliases](#alias)    
 - [Contributing](#contributing)  
@@ -51,7 +52,7 @@ To use web-object, you need to extend your page class with web-object
 Syntax   
 element :name_of_element, {:locator_strategy => "locator value"}   
 or   
-find :name_of_element, {:locator_strategy => "locator value"}   
+find :name_of_element, {:locator_strategy => "locator value"}, error=false   
     
    
 Eg:   
@@ -69,7 +70,7 @@ find :login_button, {:xpath => "//button[@id='signin']"}
    
 Returns an object of WebElement.   
 Raise an exception by default if element is not found.   
-Will return Boolean false if error=false parameter is explicitly passed.  
+Will return Boolean false if error=false parameter is explicitly passed and element is not found.  
 
 Eg of error handling as mentioned above:   
 ```   
@@ -87,7 +88,7 @@ Eg of error handling as mentioned above:
 Syntax   
 elements :name_of_element, {:locator_strategy => "locator value"}   
 or   
-all :name_of_element, {:locator_strategy => "locator value"}   
+all :name_of_element, {:locator_strategy => "locator value"}, error=true   
 or   
 element_list :name_of_element, {:locator_strategy => "locator value"}
 
@@ -109,7 +110,7 @@ all :active_users, {:css => ".users>#active"}
   
 Returns an array of WebElement objects.   
 Return an empty array in element is not found by default.   
-Will raise an error if error=true parameter explicitly passed in case of element not found.   
+Will raise an error if error=true parameter explicitly passed and element is not found.   
   
   
 Eg of error handling as mentioned above:   
@@ -122,6 +123,15 @@ Eg of error handling as mentioned above:
 
 ```
     
+### <a name="summary"></a> 3. Syntax Summary : 
+* error parameter is completely optional and web-object will continue to work as before.   
+* Default behaviour will now match the same as webdriver.   
+* __Finding single element will raise an exception by default if element not found on the page.__    
+* __Finding multiple elements will return a blank array by default if element not found on the page.__   
+* error parameter is used only to reverse the natural default behaviour.
+* __Finding single element will return Boolean false if error paramter is sent as false and element not found on the page.__
+* __Finding multiple elements will raise exception if error paramter is sent as true and element not found on the page.__
+      
       
 ## <a name="usage"></a> Usage :eyes:   
 Now as we saw how to create page objects, lets see how to put it to practical use.

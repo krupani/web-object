@@ -6,7 +6,7 @@ module Elements
 
   module FindElements
 
-    # @method element(element_name, locator, error=true)
+    # @method element(element_name, locator, error=false)
     # @param element_name [:Symbol]
     # @param locator [Hash]
     # @param error [Boolean] - default false

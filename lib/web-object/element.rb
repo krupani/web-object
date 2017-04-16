@@ -11,7 +11,7 @@ module Element
     # @param locator [Hash]
     # @param error [Boolean] -- default true
     # @return [Selenium::WebDriver::Element]
-    # @return [Boolean false] -- if element not found and error parameter = true
+    # @return [Boolean false] -- if element not found and error parameter = false
 
     def element(element_name, locator, error=true)
       send(:define_method, element_name) do
