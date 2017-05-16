@@ -1,10 +1,10 @@
-module ExpectedConditions
+module WebConditions
 
   def alert_present?
     @driver.switch_to.alert
     true
-  rescue Exception => e
+  rescue
     false
   end
 
-end #module ExpectedConditions
+end #module WebConditions

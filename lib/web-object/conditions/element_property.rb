@@ -1,4 +1,4 @@
-module ExpectedConditions
+module WebConditions
 
   def attribute_is_present(ele,attr)
     element = element_or_locator(ele)
@@ -39,4 +39,4 @@ module ExpectedConditions
   end
   alias_method :attribute_to_contain, :attribute_to_include
 
-end #module ExpectedConditions
+end #module WebConditions

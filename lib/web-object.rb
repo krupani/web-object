@@ -5,8 +5,8 @@ require 'web-object/elements'
 require 'web-object/conditions/alert'
 require 'web-object/conditions/element_interaction'
 require 'web-object/conditions/element_property'
-require 'web-object/conditions/url_n_title'
-require 'web-object/conditions/window_n_frame'
+
+include WebConditions
 
 
 class WebObject

@@ -1,4 +1,4 @@
-module ExpectedConditions
+module WebConditions
 
   def element_is_clickable(ele)
     element = element_or_locator(ele)
@@ -76,4 +76,4 @@ module ExpectedConditions
     end
   end
 
-end #module ExpectedConditions
+end #module WebConditions
