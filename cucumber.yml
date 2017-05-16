@@ -1,0 +1,1 @@
+default: --require features --no-source --color --format progress --format html --out wo_report.html
