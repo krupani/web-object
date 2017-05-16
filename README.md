@@ -154,6 +154,30 @@ class Login < WebObject
   end
 end  
 ```   
+  
+## <a name="webconditions"></a> WebConditions :eyes: 
+Always envied the fancy ExpectedConditions class which Java and Python has where they smoothly pass a condition within the WebDriver explicit wait object... And when it comes to Ruby, you need to go through a painfully lenghty procudere of creating your own method or fallback to other framweworks like Capybara or Watir loosing the original WebDriver flavor.   
+  
+Well, not to worry as web-object gem to the rescue.     
+   
+web-object gem is now equipped with an extensive list of WebConditions (we do not want to be called people who copied the name from Java so we call it WebConditions).  It can be used for both waiting for a particular condition inside the wait.until object and also in rspec assertions.   
+   
+   
+How to use it then: here is how:    
+```   
+wait = Selenium::WebDriver::Wait.new(:timeout => 30)
+wait.until{alert_present?}
+```
+or
+```
+wait = Selenium::WebDriver::Wait.new(:timeout => 30)    # Create wait object
+wait.until{element_is_visible(element)}                 # Pass a condition with web element parameter 
+wait.until{element_is_invisible(:id => 'some_button')}  # or just pass a condition with a locator hash
+
+```  
+
+Full list of WebConditions and [documentation](https://github.com/krupani/web-object/wiki) on how to use can be found [here](https://github.com/krupani/web-object/wiki).
+
 
 ## <a name="alias"></a> Aliases :eyes:   
 There is an option to use PageObject class instead of WebObject.  
