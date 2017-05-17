@@ -16,6 +16,7 @@ commands on it like send_keys, click, displayed? .. and so on...
     - [Finding Multiple Elements](#find_elements)   
     - [Syntax Summary](#summary) 
 - [Usage](#usage)   
+- [WebConditions](#webconditions)
 - [Aliases](#alias)    
 - [Contributing](#contributing)  
 - [Issues](#issues)     
