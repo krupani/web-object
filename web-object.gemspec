@@ -4,9 +4,10 @@ Gem::Specification.new do |gem|
   gem.authors       = ['Kaushal Rupani']
   gem.email         = ['kushrupani@live.com']
   gem.description   = 'Helps in generating page object style framework using original webdriver flavor'
-  gem.summary       = 'Page Objects in Original WebDriver flavor'
+  gem.summary       = 'Page Objects in Original WebDriver flavor + Vast list of Expected Conditions and WebDriver Utilities'
   gem.homepage      = 'https://github.com/krupani/web_object'
   gem.files         = Dir.glob("{lib}/**/*") + %w(README.md LICENCE)
-  gem.add_runtime_dependency('selenium-webdriver','~> 3')
+  gem.test_files    = Dir.glob("{features}/**/*") + %w(cucumber.yml Rakefile)
+  gem.required_ruby_version = '>=1.9.3'
   gem.license       = 'MIT'
 end

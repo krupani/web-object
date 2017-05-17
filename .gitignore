@@ -1,3 +1,6 @@
 .idea
 *.sh
 *.gem
+*.lock
+*.html
+!docs/*.html

@@ -2,6 +2,13 @@ require 'selenium-webdriver'
 require 'web-object/element'
 require 'web-object/elements'
 
+require 'web-object/conditions/alert'
+require 'web-object/conditions/element_interaction'
+require 'web-object/conditions/element_property'
+
+include WebConditions
+
+
 class WebObject
   include Element
   include Elements
