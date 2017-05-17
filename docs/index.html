@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>WebObject Form</title>
+</head>
+<body>
+<h1 id="header">WebObject Form</h1>
+<div id="thanks"></div>
+<form name="web-object-form" style="display:block">
+    Button (alert comes 5 seconds after clicking) :<br>
+    <input type="button" id="alert_button" value="Delayed Alert">
+    <br><br>
+    Button (text next to button becomes visible/invisible 3 seconds after clicking) :<br>
+    <input type="button" id="toggle_visibility" value="Toggle Visibility">
+    <p id="visible_text" style="display:none">Text Now Visible</p>
+    <br><br>
+    Button (field next to it becomes enabled 5 seconds after clicking): <br>
+    <input type="button" id="enable_button" value="Toggle Enabling">
+    <input type="text" id="enable_field" value="Disabled" disabled="true">
+    <br><br>
+    Button (button next to it becomes clickable 8 seconds after clicking): <br>
+    <input type="button" id="delayed_clickability" value="Delayed Clickablity">
+    <input type="button" name="clickable_button" disabled="true" style="display:none" value="Button Clickable">
+    <br><br>
+    Button (link next to it get added and gets removed from DOM 5 seconds after clicking): <br>
+    <input type="button" id="toggle_presence" value="Toggle Presence">
+    <div id="presence"></div>
+    <br><br>
+
+    Button (a new attribute toggles in 5 seconds after clicking): <br>
+    <input type="button" id="toggle_attribute" value="Toggle Attribute">
+    <br><br>
+    Button (am existing attribute values toggles in 5 seconds after clicking): <br>
+    <input type="button" id="empty_attribute" value="Empty Attribute" style="background:yellow">
+    <br><br>
+
+    <br><br><br><h2>Kaushal Rupani (<a href="https://github.com/krupani" target="_blank">Github</a>)</h2>
+    <h3>web-object (<a href="https://github.com/krupani/web-object" target="_blank">Source</a>) (<a href="https://rubygems.org/gems/web-object" target="_blank">Gem</a>)</h3>
+</form>
+
+<script>
+    document.getElementById('alert_button').addEventListener('click', function(){
+        setTimeout(function(){alert('This is a delayed alert, came 5 seconds late');}, 5000);
+    });
+    document.getElementById('toggle_visibility').addEventListener('click', function(){
+        txt = document.getElementById('visible_text');
+        txt_attr = txt.getAttribute('style');
+        if (txt_attr == "display:none") {
+            setTimeout(function(){document.getElementById('visible_text').setAttribute('style','display:block')}, 3000);
+        } else {
+            setTimeout(function(){document.getElementById('visible_text').setAttribute('style','display:none')}, 3000);
+        }
+    });
+    document.getElementById('enable_button').addEventListener('click', function(){
+        attr = document.getElementById('enable_field').getAttribute('disabled');
+        if (attr == "false" || attr == null) {
+            setTimeout(function(){document.getElementById('enable_field').disabled=true;}, 5000);
+        } else {
+            setTimeout(function(){document.getElementById('enable_field').disabled=false;}, 5000);
+        }
+    });
+    document.getElementById('delayed_clickability').addEventListener('click', function(){
+        setTimeout(function(){document.getElementsByName('clickable_button')[0].setAttribute('style','display:block')}, 4000);
+        setTimeout(function(){document.getElementsByName('clickable_button')[0].disabled=false;}, 8000);
+    });
+    document.getElementById('toggle_presence').addEventListener('click', function(){
+        ele = document.getElementById('toggle_presence_link');
+        if (ele == null) {
+            link = '<a href="#" id="toggle_presence_link">This Link was recently added into DOM</a>';
+            setTimeout(function(){document.getElementById('presence').innerHTML=link}, 3000);
+        } else {
+            setTimeout(function(){document.getElementById('presence').removeChild(ele)}, 3000);
+        }
+    });
+
+    document.getElementById('toggle_attribute').addEventListener('click', function(){
+        attr = document.getElementById('toggle_attribute').getAttribute('style');
+        if (attr == null) {
+            setTimeout(function(){document.getElementById('toggle_attribute').setAttribute('style','color:red')}, 5000);
+        } else {
+            setTimeout(function(){document.getElementById('toggle_attribute').removeAttribute('style')}, 5000);
+        }
+    });
+    document.getElementById('empty_attribute').addEventListener('click', function(){
+        attr = document.getElementById('empty_attribute').getAttribute('style');
+        if (attr == "") {
+            setTimeout(function(){document.getElementById('empty_attribute').setAttribute('style','background:yellow')}, 5000);
+        } else {
+            setTimeout(function(){document.getElementById('empty_attribute').setAttribute('style','')}, 5000);
+        }
+    });
+</script>
+
+</body>
+</html>
