@@ -1,6 +1,6 @@
 Given(/^I am on web-object form page$/) do
-  # url = "https://krupani.github.io/web-object"
-  url = "file:////Users/kaushal.rupani/projects/web-object/docs/index.html"
+  url = "https://krupani.github.io/web-object"
+  # url = "file:////Users/kaushal.rupani/projects/web-object/docs/index.html"
   @driver.get(url)
 end
 
