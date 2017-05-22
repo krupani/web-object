@@ -1,7 +1,7 @@
 Given(/^I am on web-object form page$/) do
-  url = "https://krupani.github.io/web-object"
-  # url = "file:////Users/kaushal.rupani/projects/web-object/docs/index.html"
-  @driver.get(url)
+  # @base_url = "https://krupani.github.io/web-object"
+  @base_url = "file:///Users/kaushal.rupani/projects/web-object/docs/index.html"
+  @driver.get(@base_url)
 end
 
 When(/^I follow ([^"]*) button$/) do |btn|
@@ -21,6 +21,10 @@ When(/^I follow ([^"]*) button$/) do |btn|
       wo.toggle_attribute_button.click
     when "empty_attribute"
      wo.empty_attribute_button.click
+    when "delayed_url"
+      wo.delayed_url_button.click
+    when "delayed_title"
+      wo.delayed_title_button.click
   end
 end
 
