@@ -34,6 +34,13 @@
     <input type="button" id="empty_attribute" value="Empty Attribute" style="background:yellow">
     <br><br>
 
+    Button (changes the url after 5 seconds of clicking)<br>
+    <input type="button" id="delayed_url" value="Delayed URL" onclick="delay_url()">
+    <br><br>
+    Button (changes page title after 5 seconds of clicking)<br>
+    <input type="button" id="delayed_title" value="Delayed Title" onclick="delay_title()">
+    <br><br>
+
     <br><br><br><h2>Kaushal Rupani (<a href="https://github.com/krupani" target="_blank">Github</a>)</h2>
     <h3>web-object (<a href="https://github.com/krupani/web-object" target="_blank">Source</a>) (<a href="https://rubygems.org/gems/web-object" target="_blank">Gem</a>)</h3>
 </form>
@@ -89,6 +96,14 @@
             setTimeout(function(){document.getElementById('empty_attribute').setAttribute('style','')}, 5000);
         }
     });
+    function delay_url(){
+       setTimeout(function(){window.location = window.location.href + '#newly_appended'}, 5000)
+    }
+
+    function delay_title(){
+        setTimeout(function(){document.title='This is New Title'}, 5000)
+    }
+
 </script>
 
 </body>
