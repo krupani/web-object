@@ -18,7 +18,7 @@ class WebObjectFormPage < WebObject
   element :empty_attribute_button, {:id => 'empty_attribute'}
   
   element :delayed_url_button, {:id => 'delayed_url'}
-  element :delayed_title_button, {:id => 'delayed_url'}
+  element :delayed_title_button, {:id => 'delayed_title'}
 
   def initialize(driver)
     @wait = Selenium::WebDriver::Wait.new(:timeout => 10)
