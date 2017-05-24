@@ -1,11 +1,13 @@
 class WebObjectFormPage < WebObject
 
+  element :body_element, {:tag_name => 'body'}
   element :delayed_alert_button, {:id => 'alert_button'}
 
   element :toggle_visibility_button, {:id => 'toggle_visibility'}
   element :toggle_visibility_text, {:id => 'visible_text'}
 
   element :toggle_presence_button, {:id => 'toggle_presence'}
+  element :toggle_presence_div, {:id => 'presence'}
   element :toggle_presence_link, {:id => 'toggle_presence_link'}, error=false
 
   element :toggle_enability_button, {:id => 'enable_button'}
@@ -91,6 +93,18 @@ class WebObjectFormPage < WebObject
       @wait.until{title_to_match(expected)}
     else
       @wait.until{title_to_include(expected)}
+    end
+  end
+
+  def wait_for_text_presence(txt)
+    @wait.until{text_to_be_on_page(txt)}
+  end
+
+  def wait_for_text_in_element(action, ele, txt)
+    if action == "present"
+      @wait.until{text_in_element_to_match(ele,txt)}
+    else
+      @wait.until{text_in_element_to_include(ele,txt)}
     end
   end
 
