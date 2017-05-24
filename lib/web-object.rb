@@ -7,6 +7,7 @@ require 'web-object/conditions/element_interaction'
 require 'web-object/conditions/element_property'
 require 'web-object/conditions/url'
 require 'web-object/conditions/title'
+require 'web-object/conditions/text'
 
 include WebConditions
 
