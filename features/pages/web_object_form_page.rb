@@ -22,6 +22,10 @@ class WebObjectFormPage < WebObject
   element :delayed_url_button, {:id => 'delayed_url'}
   element :delayed_title_button, {:id => 'delayed_title'}
 
+  element :delayed_more_cells_button, {:id => 'delayed_more_cells'}
+  element :delayed_less_cells_button, {:id => 'delayed_less_cells'}
+  elements :count_of_cells, {:css => 'tr#row>td'}
+
   def initialize(driver)
     @wait = Selenium::WebDriver::Wait.new(:timeout => 10)
     super(driver)
@@ -105,6 +109,16 @@ class WebObjectFormPage < WebObject
       @wait.until{text_in_element_to_match(ele,txt)}
     else
       @wait.until{text_in_element_to_include(ele,txt)}
+    end
+  end
+
+  def wait_for_element_count(type,count)
+    if type == 'greater'
+      @wait.until{elements_count_to_be_more_than({:css=>'#row>td'}, count)}
+    elsif type == 'less'
+      @wait.until{elements_count_to_be_less_than({:css=>'#row>td'}, count)}
+    else
+      @wait.until{elements_count_to_be_equal_to({:css=>'#row>td'}, count)}
     end
   end
 

@@ -25,6 +25,10 @@ When(/^I follow ([^"]*) button$/) do |btn|
       wo.delayed_url_button.click
     when "delayed_title"
       wo.delayed_title_button.click
+    when "delayed_more_cells"
+      wo.delayed_more_cells_button.click
+    when "delayed_less_cells"
+      wo.delayed_less_cells_button.click
   end
 end
 
