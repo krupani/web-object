@@ -114,11 +114,11 @@ class WebObjectFormPage < WebObject
 
   def wait_for_element_count(type,count)
     if type == 'greater'
-      @wait.until{elements_count_to_be_more_than({:css=>'#row>td'}, count)}
+      waiting(10).until{elements_count_to_be_more_than({:css=>'#row>td'}, count)}
     elsif type == 'less'
-      @wait.until{elements_count_to_be_less_than({:css=>'#row>td'}, count)}
+      waiting(10).until{elements_count_to_be_less_than({:css=>'#row>td'}, count)}
     else
-      @wait.until{elements_count_to_be_equal_to({:css=>'#row>td'}, count)}
+      waiting(10).until{elements_count_to_be_equal_to({:css=>'#row>td'}, count)}
     end
   end
 
