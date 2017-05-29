@@ -5,6 +5,11 @@ require 'web-object/elements'
 require 'web-object/conditions/alert'
 require 'web-object/conditions/element_interaction'
 require 'web-object/conditions/element_property'
+require 'web-object/conditions/url'
+require 'web-object/conditions/title'
+require 'web-object/conditions/text'
+require 'web-object/conditions/waiting'
+require 'web-object/conditions/elements_count'
 
 include WebConditions
 

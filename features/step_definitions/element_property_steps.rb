@@ -24,3 +24,19 @@ Then(/^I wait for attribute to be (match|contain) value$/) do |action|
   wo = WebObjectFormPage.new(@driver)
   wo.wait_for_attribute_value_match(action)
 end
+
+Then(/^I wait for element count to be (greater|less|equal) (?:than|to) (\d+)$/) do |type,count|
+  wo = WebObjectFormPage.new(@driver)
+  wo.wait_for_element_count(type, count)
+end
+
+And(/^I verify element count is (greater|less|equal) (?:than|to) (\d+)$/) do |type,count|
+  wo = WebObjectFormPage.new(@driver)
+  if type=='greater'
+    expect(wo.count_of_cells.size).to be > count.to_i
+  elsif type == 'less'
+    expect(wo.count_of_cells.size).to be < count.to_i
+  else
+    expect(wo.count_of_cells.size).to eq count.to_i
+  end
+end
