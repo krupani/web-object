@@ -107,8 +107,10 @@ class WebObjectFormPage < WebObject
   def wait_for_text_in_element(action, ele, txt)
     if action == "present"
       @wait.until{text_in_element_to_match(ele,txt)}
-    else
+    elsif action == 'included'
       @wait.until{text_in_element_to_include(ele,txt)}
+    else
+      @wait.until{text_in_element_to_contain(ele,txt)}
     end
   end
 

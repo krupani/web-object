@@ -21,3 +21,9 @@ Feature: As a web-object author, I want to make sure
     When I follow toggle_presence button
     Then I wait for text to be included inside element
     And I verify text is included inside element
+
+  Scenario: Verify condition for delayed text presence inside element using alias method
+    And I verify text is absent inside element
+    When I follow toggle_presence button
+    Then I wait for text to be contained inside element
+    And I verify text is included inside element

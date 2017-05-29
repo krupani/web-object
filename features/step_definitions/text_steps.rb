@@ -23,7 +23,7 @@ And(/^I verify text is (absent|present|included) inside element$/) do |state|
   end
 end
 
-Then(/^I wait for text to be (present|included) inside element$/) do |state|
+Then(/^I wait for text to be (present|included|contained) inside element$/) do |state|
   wo = WebObjectFormPage.new(@driver)
   wo.wait_for_text_in_element(state, wo.toggle_presence_div, "This Link was recently added into DOM")
 end
