@@ -14,10 +14,10 @@ module WebConditions
     end
   end
 
-  # @method url_to_match?
+  # @method url_to_include
   # @param [url] -- part of the expected url to be present in actual url in the browser
-  # @return [Boolean true] -- if alert is present on page
-  # @return [Boolean false] -- if alert is absent from page
+  # @return [Boolean true] -- if expected url in parameter in present in actual url
+  # @return [Boolean false] -- if expected url in parameter in not present in actual url
 
   def url_to_include(url)
     actual = @driver.current_url
@@ -27,5 +27,6 @@ module WebConditions
       false
     end
   end
+  alias_method :url_to_contain, :url_to_include
 
 end
