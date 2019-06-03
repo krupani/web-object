@@ -18,9 +18,9 @@ module Element
         wait = Selenium::WebDriver::Wait.new(:timeout => 0.5)
         begin
           wait.until { @driver.find_element(locator) }
-        rescue Selenium::WebDriver::Error::TimeOutError
+        rescue Selenium::WebDriver::Error::TimeoutError
           if error
-            raise "Could not find element using '#{locator.first.key}=#{locator.first.key}' strategy"
+            raise "Could not find element using '#{locator.first.first}=#{locator.first.last}' strategy"
           else
             return false
           end
