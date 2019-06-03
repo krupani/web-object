@@ -5,7 +5,10 @@ Now what does original webdriver flavor is, it simply means, no additional wrapp
 Hence just create page-objects and start using basic webdriver commands on it.
 
 Moral of the story, elements created using web-object gem will be objects of WebElement class and one can perform all webdriver
-commands on it like send_keys, click, displayed? .. and so on...
+commands on it like send_keys, click, displayed? .. and so on...   
+    
+WebObject gem is completely compatible with Appium and can also be used for ruby-appium frameworks, to sound a little more mobile-like, WebObject class has an alias called **AppObject** to be used instead PageObjects in case of Mobile frameworks..     
+    
 
 ## Table of Contents
 - [Installation](#install)  
@@ -135,10 +138,11 @@ Eg of error handling as mentioned above:
       
       
 ## <a name="usage"></a> Usage :eyes:   
-Now as we saw how to create page objects, lets see how to put it to practical use.
+Now as we saw how to create page objects, lets see how to put it to practical use.    
 
+**Web Usage**     
 ```   
-class Login < WebObject
+class LoginPage < WebObject
   element :login_email, {:id => "email"}   
   element :login_password, {:css => "#pwd"}   
   element :login_button, {:xpath => "//button[@id='signin']"}   
@@ -155,7 +159,16 @@ class Login < WebObject
   end
 end  
 ```   
-  
+
+**App or Mobile Usage**    
+```
+class LoginScreen < AppObject
+  element :username_field, {accessibility_id: "username"}
+  element :password_field, {predicate: 'name=="password"'}
+  element :login_button, {class_chain: "**/XCUIElementTypeButton[`value=='Log In'`]"}
+end
+```    
+     
 ## <a name="webconditions"></a> WebConditions :eyes: 
 Always envied the fancy ExpectedConditions class which Java and Python has where they smoothly pass a condition within the WebDriver explicit wait object... And when it comes to Ruby, you need to go through a painfully lenghty procudere of creating your own method or fallback to other framweworks like Capybara or Watir loosing the original WebDriver flavor.   
   
@@ -183,7 +196,11 @@ Full list of WebConditions and [documentation](https://github.com/krupani/web-ob
 ## <a name="alias"></a> Aliases :eyes:   
 There is an option to use PageObject class instead of WebObject.  
 Eg:
-``` class LoginPage < PageObject ```   
+``` class LoginPage < PageObject ```    
+
+There is an option to use AppObject class instead of WebObject to sound more mobile-like for appium frameworks.    
+Eg:
+``` class DashboardScreen < AppObject ```      
    
 Also for elements as mentioned above   
 for `element` there is an option to use `find` (for capybara flavor loving people)  
