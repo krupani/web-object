@@ -19,9 +19,9 @@ module Elements
         begin
           wait.until { !@driver.find_elements(locator).empty? }
           @driver.find_elements(locator)
-        rescue Selenium::WebDriver::Error::TimeOutError
+        rescue Selenium::WebDriver::Error::TimeoutError
           if error
-            raise "Could not find any elements using '#{locator.first.key}=#{locator.first.key}' strategy"
+            raise "Could not find any elements using '#{locator.first.first}=#{locator.first.last}' strategy"
           else
             return []
           end
